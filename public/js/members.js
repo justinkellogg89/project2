@@ -11,7 +11,7 @@ $(document).ready(function() {
   var cmsForm = $("#cms");
   var authorSelect = $("#author");
 
-  var kards = ['Kim', 'Kris', 'Khloe'];
+  var kards = ['Kim', 'Khloe', 'Kourtney'];
 
   var rowsToAdd = [];
 
