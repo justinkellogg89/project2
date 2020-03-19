@@ -15,8 +15,8 @@ module.exports = function(app) {
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
+  // how we configured our Sequelize User Model. If the user is created successfully, 
+  // proceed to log the user in, otherwise send back an error
   app.post("/api/signup", function(req, res) {
     db.User.create({
       email: req.body.email,
@@ -29,6 +29,42 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
+
+  // Route for creating a new quote. Pass through the author name (one of the Kards), the
+  // text of the quote (body) and the UserId.
+  app.post("/api/quote", function(req, res) {
+    //console.log(req.body);
+  db.Quote.create({
+    author: req.body.author,
+    body: req.body.body,
+    UserId: req.user.id
+  })
+    .then(function() {
+      //console.log(res);
+      res.redirect(307, "/api/comment");
+    })
+    .catch(function(err) {
+      //console.log(err);
+      res.status(401).json(err);
+    });
+  });
+
+  // // Route for creating a new comment. 
+  // app.post("/api/comment", function(req, res) {
+  // console.log(req.body);
+  // db.Comment.create({
+  //   comment: req.body.comment,
+  //   QuoteId: req.body.?,
+  //   UserId: req.user.id
+  // })
+  //   .then(function() {
+  //     res.redirect(307, "/api/comment");
+  //   })
+  //   .catch(function(err) {
+  //     console.log(err);
+  //     res.status(401).json(err);
+  //   });
+  // });
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
