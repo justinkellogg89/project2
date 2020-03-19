@@ -3,12 +3,6 @@ form.login {
   margin-top: 50px;
 }
 
-.title {
-  text-align: center;
-  font-size: 70px;
-  font-weight: bold;
-}
-
 button.submit {
   float: right;
 }
