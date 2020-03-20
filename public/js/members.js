@@ -10,6 +10,8 @@ $(document).ready(function() {
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var authorSelect = $("#author");
+  var comForm = $("#comForm");
+  var comInput = $("#com")
 
   var kards = ['Kim', 'Khloe', 'Kourtney'];
 
@@ -95,12 +97,15 @@ $(document).ready(function() {
   // Submits a new post and brings user to comment page upon completion
   function submitPost(quote) {
     $.post("/api/quote", quote, function(data) {
-      window.location.href = "/comment/" + data.id;
+      // window.location.href = "/quote/" + data.id;
+      location.reload();
       //console.log(data);
       //render("comment", {quote: data});
       //return;
     });
   }
+
+
 
   // Gets post data for the current post if we're editing, or if we're adding to an author's existing posts
   // function getPostData(id, type) {
