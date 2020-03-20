@@ -21,22 +21,6 @@ button.edit {
   margin: 5px;
 }
 
-/* .author-container {
-  margin-top: 50px;
-}
-
-.author-list {
-  margin-top: 25px;
-} */
-
-/* .blog-container {
-  margin-top: 30px;
-}
-
-.blog {
-  margin-top: 30px;
-} */
-
 .hidden {
   display: none;
 }
@@ -47,9 +31,7 @@ button.edit {
   margin-top: 5px;
 }
 
-/* .top-30 {
-  margin-top: 30px;
-} */
+
 .jumbotron {
  background-color: blue; 
  color: white
