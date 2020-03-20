@@ -99,7 +99,11 @@ function tenorCallback_search(responsetext)
 
     // load the GIFs -- for our example we will load the first GIFs preview size (nanogif) and share size (tinygif)
 
-    document.getElementById("preview_gif").src = top_10_gifs[0]["media"][0]["nanogif"]["url"];
+    // Get random number between 0 & 8 
+    var randonNum = Math.floor(Math.random() * 9);
+    console.log(randonNum)
+
+    document.getElementById("preview_gif").src = top_10_gifs[randonNum]["media"][0]["nanogif"]["url"];
     //document.getElementById("preview_gif2").src = top_10_gifs[1]["media"][0]["nanogif"]["url"];
 
     //document.getElementById("share_gif").src = top_10_gifs[0]["media"][0]["tinygif"]["url"];
@@ -122,7 +126,7 @@ function getQuote() {
      outAuthor = back.contents.requested_author
      document.getElementById("QOD").innerHTML = outQuote;
      document.getElementById("QODSource").innerHTML = outAuthor;
-     return outTo;
+    // return outTo;
  }
   };
   xhttp.open("GET", "https://quotes.rest/quote/search?author=kim%20kardashian%20&minlength=100&maxlength=300&private=false&language=en&limit=5&sfw=false", true);
