@@ -94,8 +94,11 @@ $(document).ready(function() {
 
   // Submits a new post and brings user to comment page upon completion
   function submitPost(quote) {
-    $.post("/api/quote", quote, function() {
-      window.location.href = "/comment";
+    $.post("/api/quote", quote, function(data) {
+      window.location.href = "/comment/" + data.id;
+      //console.log(data);
+      //render("comment", {quote: data});
+      //return;
     });
   }
 
