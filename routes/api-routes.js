@@ -33,38 +33,44 @@ module.exports = function(app) {
   // Route for creating a new quote. Pass through the author name (one of the Kards), the
   // text of the quote (body) and the UserId.
   app.post("/api/quote", function(req, res) {
-    //console.log(req.body);
-  db.Quote.create({
-    author: req.body.author,
-    body: req.body.body,
-    UserId: req.user.id
-  })
-    .then(function() {
-      //console.log(res);
-      res.redirect(307, "/api/comment");
+    console.log(req.body);
+    db.Quote.create({
+      author: req.body.author,
+      body: req.body.body,
+      UserId: req.user.id
+    })
+    .then(function(dbQuote) {
+      console.log(dbQuote);   //dbQuote.dataValues
+      res.json(dbQuote);
+      //res.render("comment", {quote: dbQuote});
+      //res.status(200).json(dbQuote);
     })
     .catch(function(err) {
-      //console.log(err);
+      console.log(err);
       res.status(401).json(err);
     });
   });
 
-  // // Route for creating a new comment. 
-  // app.post("/api/comment", function(req, res) {
-  // console.log(req.body);
-  // db.Comment.create({
-  //   comment: req.body.comment,
-  //   QuoteId: req.body.?,
-  //   UserId: req.user.id
-  // })
-  //   .then(function() {
-  //     res.redirect(307, "/api/comment");
-  //   })
-  //   .catch(function(err) {
-  //     console.log(err);
-  //     res.status(401).json(err);
-  //   });
-  // });
+  // Route for creating a new comment. Pass through the Quote Id the comment refers to, the
+  // text of the comment (body) and the UserId.
+  app.post("/api/comment", function(req, res) {
+    console.log(req.body);
+    console.log(req.user.id)
+    db.Comment.create({
+      comment: req.body.comment,   //.body
+      QuoteId: req.body.QuoteId,  //parseInt('11')
+      UserId: req.user.UserId    //.id
+    })
+     .then(function(dbComment) {
+       console.log(dbComment.dataValues);
+       res.render("??????", {comment: dbComment.dataValues});
+     })
+     .catch(function(err) {
+       console.log(err);
+       res.status(401).json(err);
+     });
+  });
+
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
