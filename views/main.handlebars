@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +10,7 @@
 </head>
 
 <body>
- <div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2 style="text-align: center;">Welcome <span class="member-name"></span></h2>
@@ -43,6 +43,15 @@
           </div>
         </form>
       </div>
+    </div>
+    <div class="row">
+      {{#each quotes}}
+      <div class="col-md-12">
+        <h1>{{ author }}</h1>
+        <p>{{ body }}</p>
+        <a href="/quote/{{id}}">View Comments</a>
+      </div>
+      {{/each }}
     </div>
   </div>
 
