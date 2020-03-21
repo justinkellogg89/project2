@@ -44,6 +44,7 @@
         <div class="col-md-12 col-md-offset-1">
           <h4 style="font-weight: bold;"> User: {{ this.User.email }} </h4>
           <h4> {{ comment }} </h4>
+          <span>{{formatDate createdAt}}</span>
         </div>
         {{/each}}
       </div>

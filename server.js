@@ -14,7 +14,13 @@ var db = require("./models");
 // Creating express app and configuring middleware needed for authentication
 var app = express();
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main",
+    helpers: require("./views/helpers")
+  })
+);
 app.set("view engine", "handlebars");
 
 app.use(express.urlencoded({ extended: true }));
