@@ -42,7 +42,6 @@ module.exports = function(app) {
     .then(function(dbQuote) {
       console.log(dbQuote);   //dbQuote.dataValues
       res.json(dbQuote);
-      //res.render("comment", {quote: dbQuote});
       //res.status(200).json(dbQuote);
     })
     .catch(function(err) {
@@ -55,15 +54,14 @@ module.exports = function(app) {
   // text of the comment (body) and the UserId.
   app.post("/api/comment", function(req, res) {
     console.log(req.body);
-    console.log(req.user.id)
     db.Comment.create({
-      comment: req.body.comment,   //.body
-      QuoteId: req.body.QuoteId,  //parseInt('11')
-      UserId: req.user.UserId    //.id
+      comment: req.body.comment,   //.comment
+      UserId: req.user.id,    //.id
+      QuoteId: req.body.QuoteId  //parseInt('11')
     })
      .then(function(dbComment) {
        console.log(dbComment.dataValues);
-       res.render("??????", {comment: dbComment.dataValues});
+       res.json(dbComment);
      })
      .catch(function(err) {
        console.log(err);

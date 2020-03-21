@@ -10,6 +10,8 @@ $(document).ready(function() {
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var authorSelect = $("#author");
+  var comForm = $("#comForm");
+  var comInput = $("#com")
 
   var kards = ['Kim', 'Khloe', 'Kourtney'];
 
@@ -51,20 +53,6 @@ $(document).ready(function() {
   // Sets a flag for whether or not we're updating a post to be false initially
   var updating = false;
 
-  // // If we have this section in our url, we pull out the post id from the url
-  // // in '?post_id=1', postId is 1
-  // if (url.indexOf("?post_id=") !== -1) {
-  //   postId = url.split("=")[1];
-  //   getPostData(postId, "post");
-  // }
-  // // Otherwise if we have an author_id in our url, preset the author select box to be our Author
-  // else if (url.indexOf("?author_id=") !== -1) {
-  //   authorId = url.split("=")[1];
-  // }
-
-  // Getting the authors, and their posts
-  //getAuthors();
-
   // A function for handling what happens when the form to create a new quote is submitted
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -81,53 +69,17 @@ $(document).ready(function() {
 
     console.log(newQuote);
 
-    // If we're updating a post run updatePost to update a post
-    // Otherwise run submitPost to create a whole new post
-    // if (updating) {
-    //   newPost.id = postId;
-    //   updatePost(newPost);
-    // }
-    // else {
-      submitPost(newQuote);
-    // }
+    submitPost(newQuote);
+
   }
 
-  // Submits a new post and brings user to comment page upon completion
+  // Submits a post for a new quote and reloads the current page after quote successfully created
   function submitPost(quote) {
     $.post("/api/quote", quote, function(data) {
-      //window.location.href = "/comment/" + data.id;
-      window.location.href = "/quote/" + data.id;
+      // window.location.href = "/quote/" + data.id;
+      location.reload();
       //console.log(data);
-      //render("comment", {quote: data});
-      //return;
     });
   }
-
-  // Gets post data for the current post if we're editing, or if we're adding to an author's existing posts
-  // function getPostData(id, type) {
-  //   var queryUrl;
-  //   switch (type) {
-  //   case "post":
-  //     queryUrl = "/api/posts/" + id;
-  //     break;
-  //   case "author":
-  //     queryUrl = "/api/authors/" + id;
-  //     break;
-  //   default:
-  //     return;
-  //   }
-  //   $.get(queryUrl, function(data) {
-  //     if (data) {
-  //       console.log(data.AuthorId || data.id);
-  //       // If this post exists, prefill our cms forms with its data
-  //       titleInput.val(data.title);
-  //       bodyInput.val(data.body);
-  //       authorId = data.AuthorId || data.id;
-  //       // If we have a post with this id, set a flag for us to know to update the post
-  //       // when we hit submit
-  //       updating = true;
-  //     }
-  //   });
-  // }
 
 });

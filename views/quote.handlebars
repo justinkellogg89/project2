@@ -2,8 +2,25 @@
 <h1>{{quote.author}}</h1>
 <h1>{{quote.body}}</h1>
 
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <form id="comForm">
+          <div class="form-group">
+            <label for="com">Comment:</label>
+            <textarea placeholder="Comment text" class="form-control" rows="10" id="com" data-id="{{quote.id}}"></textarea>
+            <button type="submit" class="btn btn-success submit">Submit</button>
+          </div>
+        </form>
+      </div>
 
-{{#each comment}}
-
-
+{{#each comments}}
+    <div class="col-md-12">
+      <p style="font-weight: bold;"> User Number: {{ UserId }} </p>
+    </div>
+    <div class="col-md-12">
+        <p>{{ comment }}</p>
+    </div>
 {{/each}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/comment.js"></script>
