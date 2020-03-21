@@ -28,9 +28,9 @@ module.exports = function(app) {
           model: db.Comment,
           include: [db.User]
         }
-      ]
+      ],
+      order: [[db.Comment, "createdAt", "DESC"]]
     }).then(function(dbQuote) {
-
       res.render("quote", {
         layout: "loggedin",
         quote: {

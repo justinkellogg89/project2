@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+  <link href="/stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body style="background-color: rgb(238, 248, 243);">
@@ -36,17 +36,23 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3" style="background-color: white; margin-top: 40px; padding-bottom: 40px; padding-top: 20px; border: 2px solid gray">
+      {{#if comments}}
+      <div class="col-md-6 col-md-offset-3"
+        style="background-color: white; margin-top: 40px; padding-bottom: 40px; padding-top: 20px; border: 2px solid gray">
         <h3 style="font-weight: bold;">Comments:</h3>
-          {{#each comments}}
-          <div class="col-md-12 col-md-offset-1">
-            <h4 style="font-weight: bold;"> User Number: {{ UserId }} </h4>
-            <h4> {{ comment }} </h4>
-          </div>
-          {{/each}}
+        {{#each comments}}
+        <div class="col-md-12 col-md-offset-1">
+          <h4 style="font-weight: bold;"> User: {{ this.User.email }} </h4>
+          <h4> {{ comment }} </h4>
+        </div>
+        {{/each}}
+      </div>
+      {{else}}
+      No Comments yet!
+      {{/if}}
+
     </div>
   </div>
-</div>
 </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/comment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/comment.js"></script>
