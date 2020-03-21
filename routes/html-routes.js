@@ -7,7 +7,9 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (!req.user) return res.render("index");
 
-    db.Quote.findAll().then(function(dbQuotes) {
+    db.Quote.findAll({
+      order: [["createdAt", "DESC"]]
+    }).then(function(dbQuotes) {
       res.render("main", {
         layout: "loggedin",
         quotes: dbQuotes.map(quote => quote.toJSON())
@@ -28,9 +30,9 @@ module.exports = function(app) {
           model: db.Comment,
           include: [db.User]
         }
-      ]
+      ],
+      order: [[db.Comment, "createdAt", "DESC"]]
     }).then(function(dbQuote) {
-
       res.render("quote", {
         layout: "loggedin",
         quote: {
