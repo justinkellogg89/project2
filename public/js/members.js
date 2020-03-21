@@ -10,6 +10,8 @@ $(document).ready(function() {
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var authorSelect = $("#author");
+  var comForm = $("#comForm");
+  var comInput = $("#com")
 
   var kards = ['Kim', 'Khloe', 'Kourtney'];
 
@@ -74,8 +76,8 @@ $(document).ready(function() {
   // Submits a post for a new quote and reloads the current page after quote successfully created
   function submitPost(quote) {
     $.post("/api/quote", quote, function(data) {
+      // window.location.href = "/quote/" + data.id;
       location.reload();
-      //window.location.href = "/quote/" + data.id;
       //console.log(data);
     });
   }
