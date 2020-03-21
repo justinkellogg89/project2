@@ -102,7 +102,7 @@ function tenorCallback_search(responsetext)
     // Get random number between 0 & 8 
     var randonNum = Math.floor(Math.random() * 9);
     console.log(randonNum)
-
+    
     document.getElementById("preview_gif").src = top_10_gifs[randonNum]["media"][0]["nanogif"]["url"];
     //document.getElementById("preview_gif2").src = top_10_gifs[1]["media"][0]["nanogif"]["url"];
 
@@ -113,6 +113,22 @@ function tenorCallback_search(responsetext)
 }
 
 function getQuote() {
+
+  //Global Vars
+var d = new Date();
+var yyyy = d.getFullYear();
+var mm   = d.getMonth() + 1;
+var dd   = d.getDate();
+var hh   = d.getHours();
+var min  = d.getMinutes();
+
+//console.log(yyyy, mm, dd, hh, min);
+
+var dateTime = mm + "/" + dd + "/" + yyyy + " " + hh + ":" + min;
+
+//console.log(dateTime);
+document.getElementById("currentDay").textContent = "QUOTE OF THE DAY          " + dateTime;
+
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
  if (this.readyState == 4 && this.status == 200) {
@@ -134,6 +150,7 @@ function getQuote() {
   xhttp.setRequestHeader("X-Theysaidso-Api-Secret", "Svix6Lv46rgyPi54Z6Oy_weF");
   xhttp.send();
 }
+
 
 getQuote();
 //document.getElementById("QOD").innerHTML = outTo;
