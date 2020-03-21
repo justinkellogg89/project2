@@ -10,37 +10,43 @@
 </head>
 
 <body style="background-color: rgb(238, 248, 243);">
-<div class="container">
-  <div class="row">
-    {{!-- <div class="col-md-6"> --}}
+  <div class="container">
+    <div class="row">
+      {{!-- <div class="col-md-6"> --}}
       <blockquote class="blockquote text-center">
         <h1 class="mb-0 display-1">{{quote.body}}</h1>
-        <h1 class="display-4"><footer class="blockquote-footer"><cite title="Source Title">{{quote.author}}</h1></cite></footer>
+        <h1 class="display-4">
+          <footer class="blockquote-footer"><cite title="Source Title">{{quote.author}}
+        </h1></cite></footer>
       </blockquote>
       {{!-- <h1 class="display-2">{{quote.author}} "{{quote.body}}"</h1> --}}
-    {{!-- </div> --}}
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <form id="comForm">
-        <div class="form-group">
-          {{!-- <label for="com"><h3>Comment Below!</h3></label> --}}
-          <textarea placeholder="Write your comment here!" class="form-control" rows="3" id="com" data-id="{{quote.id}}"></textarea>
-          <button type="submit" class="btn btn-success submit" style="padding-left: 256px; padding-right:256px;">Submit</button>
-        </div>
-      </form>
+      {{!-- </div> --}}
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <form id="comForm">
+          <div class="form-group">
+            {{!-- <label for="com"><h3>Comment Below!</h3></label> --}}
+            <textarea placeholder="Write your comment here!" class="form-control" rows="3" id="com"
+              data-id="{{quote.id}}"></textarea>
+            <button type="submit" class="btn btn-success submit"
+              style="padding-left: 256px; padding-right:256px;">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3" style="background-color: white; margin-top: 40px; padding-bottom: 40px; padding-top: 20px; border: 2px solid gray">
+        <h3 style="font-weight: bold;">Comments:</h3>
+          {{#each comments}}
+          <div class="col-md-12 col-md-offset-1">
+            <h4 style="font-weight: bold;"> User Number: {{ UserId }} </h4>
+            <h4> {{ comment }} </h4>
+          </div>
+          {{/each}}
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3" style="background-color: white; margin-top: 40px; padding-bottom: 40px; padding-top: 20px; border: 2px solid gray">
-      <h3 style="font-weight: bold;">Comments:</h3>
-      {{#each comments}}
-        <div class="col-md-12 col-md-offset-1">
-          <h4>{{ UserId }}: {{ comment }}</h4>
-        </div>
-      {{/each}}
-    </div>
-  </div>
-
+</div>
+</body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/comment.js"></script>
