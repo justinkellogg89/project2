@@ -42,7 +42,6 @@ module.exports = function(app) {
     .then(function(dbQuote) {
       console.log(dbQuote);   //dbQuote.dataValues
       res.json(dbQuote);
-      //res.render("comment", {quote: dbQuote});
       //res.status(200).json(dbQuote);
     })
     .catch(function(err) {
