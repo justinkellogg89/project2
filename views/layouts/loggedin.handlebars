@@ -11,21 +11,26 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/logout">
-          Logout
-        </a>
-        <a class="navbar-brand" href="/" style="text-align: center;">Home</a>
-        {{!-- <div class="navbar-nav navbar-center"> --}}
-        {{!-- <span class="navbar-text mr-0"> --}}
-        <h2><strong>Wild Kards</strong></h2>
-        {{!-- </span> --}}
-        {{!-- </div> --}}
-      </div>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+          <a class="navbar-brand" href="/logout">
+            Logout
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand" href="/">Home</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <h3>Wild Kards</h3>
+    </span>
+  </div>
+</nav>
   {{{body}}}
 </body>
 
