@@ -7,8 +7,10 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (!req.user) return res.render("index");
 
-    db.Quote.findAll().then(function(dbQuotes) {
-      res.render("main", {
+    db.Quote.findAll({
+      order: [["createdAt", "DESC"]]
+    }).then(function(dbQuotes) {
+      res.render("root", {
         layout: "loggedin",
         quotes: dbQuotes.map(quote => quote.toJSON())
       });

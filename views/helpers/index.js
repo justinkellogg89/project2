@@ -1,3 +1,3 @@
 module.exports = {
-  formatDate: require("./formatDate")
-};
+    formatDate: require("./formatDate")
+  };
