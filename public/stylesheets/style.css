@@ -4,7 +4,13 @@ form.login {
 }
 
 button.submit {
-  float: right;
+  width: 100%;
+  background-color: rgb(136, 160, 160);
+  border: none;
+}
+
+button.submit:hover {
+  background-color: rgb(100, 117, 148);
 }
 
 form#cms {
@@ -46,3 +52,11 @@ button.edit {
   color: #ffffff;
   font-size: xx-large; 
   background-color: #880000; }
+
+  .cmtBox {
+    border-radius: 14px;
+    background: #56c0da;
+    box-shadow:  10px 10px 20px rgb(136, 160, 160), 
+                 -10px -10px 20px rgb(100, 117, 148);
+  }
+

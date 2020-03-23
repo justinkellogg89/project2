@@ -12,12 +12,13 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 offset-md-3">
+      <div class="col-md-6 offset-md-3" style="margin-top: 30px; margin-bottom: 20px;">
         <blockquote class="blockquote text-center">
-          <h2 class="mb-0 display-1">{{quote.body}}</h2>
-          <h1 class="display-4">
-            <footer class="blockquote-footer"><cite title="Source Title">{{quote.author}}
-          </h1></cite></footer>
+          <h5 class="mb-0">{{quote.body}}</h5>
+          <h4>
+            <footer class="blockquote-footer" style="margin-top: 30px;"><cite title="Source Title">{{quote.author}}
+          </h4>
+          </cite></footer>
         </blockquote>
       </div>
     </div>
@@ -28,29 +29,28 @@
             <textarea placeholder="Write your comment here!" class="form-control" rows="3" id="com"
               data-id="{{quote.id}}"></textarea>
           </div>
-            <button type="submit" class="btn btn-success submit"
-              class="mw-100 offset-md-3">Submit</button>
+            <button type="submit" id="commentBtn" class="btn btn-success submit">Comment</button>
         </form>
       </div>
     </div>
     <div class="row">
         {{#if comments}}
-        <div class="col-md-6 offset-md-3 w-75 p-3"
-          style="background-color: white; margin-top: 40px; padding-right: 50px; border: 2px solid gray; margin-bottom: 20px;">
-        <h3 style="font-weight: bold;">Comments:</h3>
+        <div class="col-md-6 offset-md-3 w-75 p-3 cmtBox"
+          style="background-color: white; margin-top: 70px; padding-right: 50px; border: 2px solid gray; margin-bottom: 20px;">
+        <h5 style="font-weight: bold; margin-bottom: 20px;">Comments:</h3>
         {{#each comments}}
-        <div class="col-md-12 col-md-offset-1">
+        <div class="col-md-12 col-md-offset-1" style="margin-bottom: 20px;">
           <span>{{formatDate createdAt}}</span>
-          <h4 style="font-weight: bold;">{{ this.User.email }}: </h4>
-          <h5> {{ comment }} </h5>
+          <h5 style="font-weight: bold;">{{ this.User.email }}: </h5>
+          <h6> {{ comment }} </h6>
         </div>
         {{/each}}
       </div>
       {{else}}
-      <div class="col-md-6 offset-md-3 w-75 p-3"
-      style="background-color: white; margin-top: 40px; padding-right: 50px; border: 2px solid gray; margin-bottom: 20px;">
-        <div class="col-md-12 col-md-offset-1">
-          <h4>No Comments yet!</h4>
+      <div class="col-md-6 offset-md-3 w-75 p-3 cmtBox"
+      style="background-color: white; margin-top: 70px; padding-right: 50px; border: 2px solid gray; margin-bottom: 20px;">
+        <div class="col-md-12 col-md-offset-1" style="text-align: center;">
+          <h6>No Comments yet!</h6>
         </div>
       </div>
       {{/if}}
