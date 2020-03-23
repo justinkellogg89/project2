@@ -111,6 +111,7 @@ module.exports = function(app) {
       lmt;
 
     axios.get(search_url).then(function({ data }) {
+      console.log(data);
       var randonNum = Math.floor(Math.random() * data.results.length);
       const img = data.results[randonNum].media[0].gif.url;
       res.send(img);
