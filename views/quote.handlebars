@@ -9,7 +9,7 @@
   <link href="/stylesheets/style.css" rel="stylesheet">
 </head>
 
-<body style="background-color: rgb(238, 248, 243);">
+<body>
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
@@ -19,40 +19,41 @@
             <footer class="blockquote-footer"><cite title="Source Title">{{quote.author}}
           </h1></cite></footer>
         </blockquote>
-      {{!-- <h1 class="display-2">{{quote.author}} "{{quote.body}}"</h1> --}}
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <form id="comForm">
           <div class="form-group">
-            {{!-- <label for="com"><h3>Comment Below!</h3></label> --}}
             <textarea placeholder="Write your comment here!" class="form-control" rows="3" id="com"
               data-id="{{quote.id}}"></textarea>
-            <button type="submit" class="btn btn-success submit"
-              class="mw-100">Submit</button>
           </div>
+            <button type="submit" class="btn btn-success submit"
+              class="mw-100 offset-md-3">Submit</button>
         </form>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 offset-md-4">
         {{#if comments}}
-        <div class="col-md-6 w-75 p-3"
+        <div class="col-md-6 offset-md-3 w-75 p-3"
           style="background-color: white; margin-top: 40px; padding-right: 50px; border: 2px solid gray; margin-bottom: 20px;">
         <h3 style="font-weight: bold;">Comments:</h3>
         {{#each comments}}
         <div class="col-md-12 col-md-offset-1">
-          <h4 style="font-weight: bold;"> User: {{ this.User.email }} </h4>
-          <h4> {{ comment }} </h4>
           <span>{{formatDate createdAt}}</span>
+          <h4 style="font-weight: bold;">{{ this.User.email }}: </h4>
+          <h5> {{ comment }} </h5>
         </div>
         {{/each}}
       </div>
       {{else}}
-      No Comments yet!
+      <div class="col-md-6 offset-md-3 w-75 p-3"
+      style="background-color: white; margin-top: 40px; padding-right: 50px; border: 2px solid gray; margin-bottom: 20px;">
+        <div class="col-md-12 col-md-offset-1">
+          <h4>No Comments yet!</h4>
+        </div>
+      </div>
       {{/if}}
-    </div>
     </div>
   </div>
 
