@@ -46,8 +46,3 @@ button.edit {
   color: #ffffff;
   font-size: xx-large; 
   background-color: #880000; }
-
-.nav-bar.navbar-center {
-  position: absolute;
-  left: 50%;
-}
