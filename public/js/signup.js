@@ -57,11 +57,19 @@ function getQuote() {
   var mm = d.getMonth() + 1;
   var dd = d.getDate();
   var hh = d.getHours();
+
   var min = d.getMinutes();
+  var minMM = 0;
+
+  if (min < 10) {
+    minMM = "0" + min;
+  } else {
+    minMM = min;
+  }
 
   //console.log(yyyy, mm, dd, hh, min);
 
-  var dateTime = mm + "/" + dd + "/" + yyyy + " " + hh + ":" + min;
+  var dateTime = mm + "/" + dd + "/" + yyyy + " " + hh + ":" + minMM;
 
   //console.log(dateTime);
   document.getElementById("currentDay").textContent =
