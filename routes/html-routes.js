@@ -10,7 +10,7 @@ module.exports = function(app) {
     db.Quote.findAll({
       order: [["createdAt", "DESC"]]
     }).then(function(dbQuotes) {
-      res.render("main", {
+      res.render("root", {
         layout: "loggedin",
         quotes: dbQuotes.map(quote => quote.toJSON())
       });
