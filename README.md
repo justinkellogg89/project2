@@ -4,7 +4,7 @@
 
 Megan Coppins
 
-Jim Denis
+Jim Dennis
 
 Robert Greasley
 
